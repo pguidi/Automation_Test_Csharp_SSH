@@ -1,0 +1,13 @@
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\Renci.SshNet.dll
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\Renci.SshNet.xml
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\TCA.csprojAssemblyReference.cache
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\TCA.csproj.GenerateResource.cache
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\TCA.csproj.CoreCompileInputs.cache
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\TCA.csproj.CopyComplete
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\pguidi\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
