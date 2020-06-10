@@ -1,0 +1,79 @@
+<<BEGIN_DUT>>
+
+META)SWITCH*
+Line 2012048934:Change flash-hook call service to "Endpoint"
+*SWITCH
+
+MILAN)OLT*
+cli;show version;
+config;
+no ont paulo;
+ont paulo serial-number 478C4D profile-id GH3200X;
+top;
+interface ont-ua paulo/1;
+sip-profile meta_pet;
+vlan 1020;
+ip address 0.0.0.0/24;
+ip gateway 10.230.20.1;
+policy-map camilavoice;
+top;
+interface pots paulo/p1;
+sip-service 1;2012048933;2012048933;daitan123;
+dial-plan system-default;
+three-way-calling;
+top;
+interface pots paulo/p2;
+sip-service 1;2012048934;2012048934;daitan123;
+dial-plan system-default;
+top;
+exit;
+show interface pots paulo/p1 sip-service status
+*OLT
+
+
+GH3200X)ONT*
+cli;
+telnet 10.10.200.216;
+root;dbps;
+kill 3;
+telnet 10.10.200.216 2003;
+dcli potsmgr show sip_service
+*ONT
+
+<<END_DUT>>
+
+
+
+
+<<BEGIN_AUX>>
+
+META)SWITCH*
+*SWITCH
+
+
+E7 117)OLT*
+"E7>Shelf1>Card2>GPON3>ONT6"
+Configure Service Tag with "@Untagged_1020"
+Host Protocol with "dhcp"
+Create SIP service with user name and URI "20120432"
+Password "daitan123"
+SIP profile "@Meta_Pet_IP"
+Dial plan "system-default"
+*OLT
+
+
+844G-1)ONT*
+*ONT
+
+<<END_AUX>>
+
+	
+<<BEGIN_STEPS>>
+A CALL B;
+OFFHOOK B;
+OFFHOOK C;
+FLASH A AND A CALL C;
+FLASH A;
+FLASH A;  
+END
+<<END_STEPS>>

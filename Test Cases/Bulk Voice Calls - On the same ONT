@@ -1,0 +1,58 @@
+h5. Setup (Preconditions and Configuration):
+*E7 FW:*
+{noformat}
+DAITAN# show ver
+version 1/1
+ image-partition      imgy
+ full-release-version N/A
+ live-release-version N/A
+ image-type           FullRelease
+ patches              none
+ features             Signed-Optics-Enforcement-Disabled
+ distro               "FB-AXOS-5298-CityFibre 2018.12.24 13:29:23"
+ schema               17.0.0-ib42
+ timestamp            "2018.12.24 13:29:23"
+ details              FBAXOS5298-CI0-175
+version 1/2
+{noformat}
+
+*ONT model, FW versions:*
+{noformat}
+~ # ver -nc
+Calix ONT GH3200X
+  GigEth ports:    3
+  POTS ports:      2       Slic:LE9540
+  RF ports:        0
+  MFG S/N:         341711000034
+  FSAN S/N:        CXNK00478C4D
+  SW Release Ver:  19.1.555.35
+  Kernel Version:  Linux 4.1.38 Dec 14 2018 aarch64 GNU/Linux
+
+Running    : 19.1.555.35
+Nonrunning : 19.1.555.22
+{noformat}
+
+*Summary:*
+{noformat}
+Bulk Voice Calls - On the same ONT
+{noformat}
+
+*STEPS:*
+{noformat}
+
+ONT GH3200X: Phone A and Phone B
+
+1 - Created SIP line for both phones A (2012048934) and B (2012048933)
+2 - Configured ameritec to generate 100 calls (A calls B / B calls A)
+	> Phone A on port 21
+	> Phone B on port 22
+	
+Results:
+	
+	- Verified that just 2 of 108 calls was not completed from phone A to phone B
+	- Verified that just 2 of 107 calls was not completed from phone B to phone A
+
+{noformat}
+
+*Test Results*
+!Test_Results.jpg|thumbnail!

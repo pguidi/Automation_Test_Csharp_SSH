@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="TCA_DEMO.exe" version="1.0.0.0" publicKeyToken="daa25b3fa01f8d47" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="TCA_DEMO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="TCA_DEMO.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opções de Manifesto UAC
+          Se desejar mudar o nível de Controle de Conta de Usuário do Windows, substitua o 
+          nó requestedExecutionLevel por um dos seguintes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Se deseja usar a Virtualização de Arquivos e Registro para compatibilidade 
+         com versões anteriores, exclua o nó requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dart.Telnet.dll" size="118272">
+      <assemblyIdentity name="Dart.Telnet" version="4.4.9.0" publicKeyToken="5966291B8955E4BB" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>b4aEFpjR5L5t4ybam1JMhI3+eYP8eBfqEw13CvzdLzk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Renci.SshNet.dll" size="422912">
+      <assemblyIdentity name="Renci.SshNet" version="2016.1.0.0" publicKeyToken="1CEE9F8BDE3DB106" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9jFe0UZDj3cCAzaBBD+P6WkO05oqvJoZIkZCSUSjono=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TCA_DEMO.exe" size="5411248">
+      <assemblyIdentity name="TCA_DEMO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ddOrQFhVfYEKfQEjTfouYuAGl439UPz4SWyCj6BlqVc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="TCA_DEMO.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DAITAN\pguidi" issuerKeyHash="1dc5a69a67ff35200021ef2f574777a943bcbaaa" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>VwSlAYsR1x5D2PFzDQsFlRZLTrG+/4SKhNGO2pkxlWs=</DigestValue></Reference></SignedInfo><SignatureValue>rZYwfS4Qlqq1Xmi97OsbwsPw10dLI269yffL5K26h7CkVyxLDWk2vfZypSOvDRkYYOvFLXquWooofF5XYlhn2Qu03t6ph6qJzXJTir93z+6QpdAeVTUvN/UDsljsxkz8pyh+aAqCpT3wB+fbTjEOdmwg5HPJ2Cx1e4a5NsdavBc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zpBpJ8XADn87X82Pzi6PfRgzhKMGXCx8KzBeZ3dqMnvMsKyJ4Boufd40e7yLPiNGWPq1W7PXz/Wv9s0eE4Xjg9O3hVgCmI/sTd09wvhcXrQgO+zp/lfe/fCXb8T02Dcgc916zRQmyWvLoQ8bFd43mNPrAvPhwn3NAnZyEji7kuk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="6b953199da8ed1848a84ffbeb14e4b1695050b0d73f1d8431ed7118b01a50457" Description="" Url=""><as:assemblyIdentity name="TCA_DEMO.exe" version="1.0.0.0" publicKeyToken="daa25b3fa01f8d47" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DAITAN\pguidi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>4zO9IsFxc41IyVLlTNH8NgEKHRPrlX/acdryFYPLkVw=</DigestValue></Reference></SignedInfo><SignatureValue>ONxLPYi2oHJSnx/3xpAFIYhEMsUAc31Z1Zs/7vDzZCdloP/taMLITqF+XWeC1n67fWnJWQhVDUaMBioP2Xh456cnDeFM/5Pg5ml9RsNVRwL2KsMTtTrLoEHwgdFo08T+2zYLIF9Ov9XUA3j6u5ghSFU330DLQ3dwPBJvOpjMTvQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zpBpJ8XADn87X82Pzi6PfRgzhKMGXCx8KzBeZ3dqMnvMsKyJ4Boufd40e7yLPiNGWPq1W7PXz/Wv9s0eE4Xjg9O3hVgCmI/sTd09wvhcXrQgO+zp/lfe/fCXb8T02Dcgc916zRQmyWvLoQ8bFd43mNPrAvPhwn3NAnZyEji7kuk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQVKwIitAda6RP6pakpQvGfzANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoARABBAEkAVABBAE4AXABwAGcAdQBpAGQAaTAeFw0xOTAyMTkxODM0NTlaFw0yMDAyMjAwMDM0NTlaMCUxIzAhBgNVBAMeGgBEAEEASQBUAEEATgBcAHAAZwB1AGkAZABpMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDOkGknxcAOfztfzY/OLo99GDOEowZcLHwrMF5nd2oye8ywrIngGi593jR7vIs+I0ZY+rVbs9fP9a/2zR4TheOD07eFWAKYj+xN3T3C+FxetCA77On+V9798JdvxPTYNyBz3XrNFCbJa8uhDxsV3jeY0+sC8+HCfc0CdnISOLuS6QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBABHDhlhI0pFu4ZmT7+Ij1jLLULqW2kEiPMFpHublBiVMXSa4SSpr7H6wU/h+PobL9nMTlnSsOYXHPbXaV9O61Qt84MNGt4o3SEJkLQsT15QmOUQS5ldJeVXv7WfhyeEpzHuOpSxj0Hr+EZFax7rz1ZuRmoCxaLPmFufeU4+Ei0OG</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

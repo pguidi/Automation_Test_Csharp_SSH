@@ -1,0 +1,59 @@
+<<BEGIN_DUT>>
+
+META)SWITCH*
+*SWITCH
+
+MILAN)OLT*
+cli;show version;
+config;
+sip-profile MetaSwitch;
+rtp-codec first-order G729;
+rtp-codec second-order uLaw;
+rtp-codec third-order aLaw;
+top;
+exit;
+show interface pots gaspagh3200A/p* sip-service status;
+show interface pots gaspagh3200B/p* sip-service status
+telnet 10.83.19.59 5003;
+ver -nc
+*OLT
+
+
+GH3200X)ONT*
+cli;
+telnet 10.83.19.53 5011;
+ver -nc;
+dcli potsmgr show sip_service;
+dcli potsmgr show sip_profile;
+dcli potsmgr show pots
+*ONT
+
+<<END_DUT>>
+
+
+
+<<BEGIN_AUX>>
+
+META)SWITCH*
+*SWITCH
+
+
+E7 117)OLT*
+*OLT
+
+
+844G-1)ONT*
+*ONT
+
+<<END_AUX>>
+
+	
+<<BEGIN_STEPS>>
+A CALL B;
+B CALL A;
+OFFHOOK B;
+OFFHOOK C;
+FLASH A AND A CALL C;
+FLASH A;
+END
+<<END_STEPS>>

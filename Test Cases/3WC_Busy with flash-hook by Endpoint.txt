@@ -1,0 +1,68 @@
+DUT:
+
+SWITCH_META*/
+Line 2012048934:Change flash-hook call service to "Endpoint"
+SWITCH_META/*
+
+OLT_MILAN*/
+cli
+show version
+**500**
+config
+interface ont-ua Guidi/1
+sip-profile meta_pet
+vlan 1020
+ip address 0.0.0.0/24
+ip gateway 10.230.20.1
+policy-map camilavoice
+top
+interface pots paulo/p1
+sip-service 1
+2012048934
+2012048934
+daitan123
+dial-plan system-default
+three-way-calling
+top
+interface pots paulo/p2
+sip-service 1
+2012048933
+2012048933
+daitan123
+dial-plan system-default
+OLT_MILAN/*
+
+**15000**
+
+DUT_ONT*/
+dcli potsmgr show sip_service
+DUT_ONT/*
+
+
+AUX:
+
+SWITCH_META*/
+/*
+
+OLT_E7_117*/
+"E7>Shelf1>Card2>GPON3>ONT6"
+Configure Service Tag with "@Untagged_1020"
+Host Protocol with "dhcp"
+Create SIP service with user name and URI "20120432"
+Password "daitan123"
+SIP profile "@Meta_Pet_IP"
+Dial plan "system-default"
+/*
+
+AUX_ONT*/
+/*
+	
+STEPS*//
+<A CALL B>
+<OFFHOOK B>
+<OFFHOOK C>
+<FLASH A AND A CALL C>
+<FLASH A>
+<FLASH A>  
+<END>
+//*

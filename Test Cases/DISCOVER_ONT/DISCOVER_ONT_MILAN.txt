@@ -1,0 +1,11 @@
+IP*10.10.200.120
+*IP
+user*root
+*user
+pass*root
+*pass
+OLT_MILAN*
+root
+cli
+show discovered-onts
+*OLT_MILAN

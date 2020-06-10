@@ -1,0 +1,138 @@
+h5. Setup (Preconditions and Configuration):
+*E7 FW:*
+{noformat}
+DAITAN# show version
+version 1/1
+ image-partition      imgy
+ full-release-version N/A
+ live-release-version N/A
+ image-type           FullRelease
+ patches              none
+ features             Signed-Optics-Enforcement-Disabled
+ distro               "IB-AXOS-19.1 2019.01.08 04:07:11"
+ schema               18.0.0-ib191
+ timestamp            "2019.01.08 04:07:11"
+ details              IBAXOS191-CI-260
+version 1/2
+{noformat}
+
+*ONT model, FW versions:*
+{noformat}
+~ # ver -nc
+Calix ONT GH3200X
+  GigEth ports:    3
+  POTS ports:      2       Slic:LE9540
+  RF ports:        0
+  MFG S/N:         341711000034
+  FSAN S/N:        CXNK00478C4D
+  SW Release Ver:  19.1.555.47
+  Kernel Version:  Linux 4.1.38 Jan 2 2019 aarch64 GNU/Linux
+
+Running    : 19.1.555.47
+Nonrunning : 19.1.555.35
+{noformat}
+
+*Environment (GC,TL1,CMS,CLI,WEB,SNMP,XML,FTA,etc.):*
+{noformat}
+CLI
+{noformat}
+
+*Summary:*
+{noformat}
+Endpoint Functionality - ONT short calls - Intra ONTs
+{noformat}
+
+*PRE-CONFIGURATION:*
+{noformat}
+
+DAITAN#config
+DAITAN(config)# sip-profile broad_X
+Value for 'proxy-server' (<hostname (1-63 characters including lower and upper case alpha/numerics. '_', '\' and '-'.)>): 10.230.20.222
+DAITAN(config-sip-profile-broad_X)# registration-period 60
+DAITAN(config-sip-profile-broad_X)# rtp-codec first-order G729
+DAITAN(config-sip-profile-broad_X)# rtp-codec second-order uLaw
+DAITAN(config-sip-profile-broad_X)# rtp-codec third-order aLaw
+
+#top
+
+DAITAN(config)# do show running-config sip-profile broad_x
+sip-profile broad_x proxy-server 10.230.20.222
+ registration-period 60
+ rtp-codec first-order G729
+ rtp-codec second-order uLaw
+ rtp-codec third-order aLaw
+
+#top
+
+DAITAN(config)# interface ont-ua paulo/1
+DAITAN(config-ont-ua-paulo/1)# sip-profile broad_X
+DAITAN(config-ont-ua-paulo/1)# vlan 1020
+DAITAN(config-vlan-205)# ip address 0.0.0.0/24
+DAITAN(config-vlan-205)# policy-map camilavoice
+
+#top
+
+DAITAN(config)# interface pots paulo/p1
+DAITAN(config-pots-paulo/p1)# sip-service 1
+Value for 'uri' (<string>): 2012049284
+Value for 'user' (<string>): 2012049284
+Value for 'password' (<string>): daitan123
+DAITAN(config-sip-service-1)# dial-plan asterisk
+
+#top
+
+DAITAN(config)# interface pots paulo/p2
+DAITAN(config-pots-paulo/p1)# sip-service 1
+Value for 'uri' (<string>): 2012049285
+Value for 'user' (<string>): 2012049285
+Value for 'password' (<string>): daitan123
+DAITAN(config-sip-service-1)# dial-plan asterisk
+{noformat}
+
+*STEPS:*
+{noformat}
+
+Done test using indirect media gateway (Asterisk) as follows:
+
+1 - GH3200X ONT (IP address: 10.230.21.107): Created two SIP lines on the same ONT for phone A (2012049284) and phone B (2012049285)
+
+2 - Created sip-profile: broad_X
+
+3 - Configured sip-profile as follows:
+		- Primary SIP Server IP Address: 10.230.20.222 (Asterisk softswitch)
+
+4 - Configured ONT with broad_X sip-profile
+
+5 - Configured Americ System as follows:
+		> Phone A on port 21
+	    > Phone B on port 22
+
+6 - Started Ameritec Test
+
+7 - After 24 hours:
+		- Were done 1287 Calls from phone A to phone B without errors
+		- Were done 1287 Calls from phone B to phone A without errors
+
+Attached ameritec test printscreen file and wireshark log file with 13 hours of the test
+
+
+Done other test using direct media gateway (broadsoft) as follows:
+
+1 - GH3200X ONT (IP address: 10.10.205.144): Created two SIP lines on the same ONT for phone A (2404987426) and phone B (2404987425)
+2 - Configured ONT with broadsoft sip-profile
+3 - Initiated a call from phone A to phone B
+	- Verified that the call was established successfully
+4 - Initiated a call from phone B to phone A
+	- Verified that the call was established successfully
+
+Note:
+
+Test using Asterisk Softswitch: Indirect media gateway
+** See wireshark printscreen file attached: Indirect_Media_Gateway_RTP.JPG
+
+Test using Broadsoft Softswitch: Direct media gateway
+** See test log file attached: Call_Direct_Media_IntraONTs.pcapng
+{noformat}
+
+*Ameritec Test Results*
+!Call_jan_8-19.30-jan_9_08.24.JPG|thumbnail!

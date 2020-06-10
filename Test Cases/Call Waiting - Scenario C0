@@ -1,0 +1,95 @@
+h5. Setup (Preconditions and Configuration):
+*OLT FW:*
+{noformat}
+DAITAN# show ver
+version 1/1
+ image-partition      imgy
+ full-release-version N/A
+ live-release-version N/A
+ image-type           FullRelease
+ patches              none
+ features             Signed-Optics-Enforcement-Disabled
+ distro               "FB-AXOS-5298-CityFibre 2018.12.01 20:39:51"
+ schema               17.0.0-ib42
+ timestamp            "2018.12.01 20:39:51"
+ details              FBAXOS5298-CI0-109
+version 1/2
+{noformat}
+
+*ONT model, FW versions:*
+{noformat}
+~ # ver -nc
+Calix ONT GH3200X
+  GigEth ports:    3
+  POTS ports:      2       Slic:LE9540
+  RF ports:        0
+  MFG S/N:         341711000034
+  FSAN S/N:        CXNK00478C4D
+  SW Release Ver:  19.1.555.13
+  Kernel Version:  Linux 4.1.38 Dec 3 2018 aarch64 GNU/Linux
+
+Running    : 19.1.555.13
+Nonrunning : 19.1.555.12
+{noformat}
+
+*Environment (GC,TL1,CMS,CLI,WEB,SNMP,XML,FTA,etc.):*
+{noformat}
+CLI
+{noformat}
+
+*Summary:*
+{noformat}
+Call Waiting - Scenario C0
+{noformat}
+
+*PRE-CONFIGURATION:*
+{noformat}
+
+DAITAN(config)# interface pots paulo/p1
+DAITAN(config-pots-paulo/p1)# sip-service 1
+DAITAN(config-sip-service-1)# call-waiting
+
+#top
+#exit
+
+DAITAN# show interface pots paulo/p1 sip-service status
+sip-service status
+ sip-profile           meta_pet
+ ont-ua                1
+ uri                   2012049125
+ user                  2012049125
+ password              daitan123
+ service-status        registered
+ hook-status           onhook
+ mac-address           cc-be-59-51-db-d6
+ ip-address            10.230.21.107/23
+ gateway               0.0.0.0
+ call-waiting          true
+ caller-id             true
+ three-way-calling     true
+ msg-waiting-indicator true
+ t38-fax-relay         false
+ dial-plan             system-default
+ shutdown              false
+ oper-state            up
+
+{noformat}
+
+*STEPS:*
+{noformat}
+
+1 - Created SIP line for phone A (2012048933), phone B (2012049125) and phone C (2012048932)
+2 - Enabled Call-Waiting on ONT for phone B
+3 - Initiated a call from phone A to phone B and it was established
+4 - Initiated a call from phone C to phone B while A and B were in conversation
+	- Verified that phone B received CW tone
+5 - Flashed phone B
+	- Verified B and C were in conversation and phone A was muted
+6 - Flashed phone B
+	- Verified B and A were in conversation and phone C was muted
+7 - Flashed phone B
+	- Verified B and C were in conversation and phone A was muted
+8 - Flashed phone B
+	- Verified B and A were in conversation and phone C was muted
+	
+{noformat}
